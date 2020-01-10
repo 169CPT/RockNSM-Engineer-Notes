@@ -1,0 +1,40 @@
+# How to install FSF on RockNSM
+
+File Scanning Framework (FSF)
+
+`sudo yum install fsf`
+
+`ls /opt/fsf`
+* Should see the client and the server
+
+#### Server
+`sudo nano /opt/fsf/fsf-server/conf/config.py`
+```
+‘LOG_PATH’ : ‘/data/fsf/logs’,
+‘YARA_PATH’ : ‘/var/lib/yara-rules/rules.yara’,
+'PID_PATH' : '/run/fsf/scanner.pid',
+‘EXPORT_PATH’ : ‘/data/fsf/files’,        //archives files marked as malicious here
+'EXPORT_PATH' : '/data/fsf/files',
+'TIMEOUT' : 60,
+'MAX_DEPTH' : 10,
+'ACTIVE_LOGGING_MODULES' : ['scan_log', 'rockout'],
+}
+SERVER_CONFIG = { 'IP_ADDRESS' : "172.16.50.100",
+                  'PORT' : 5800 }
+```
+
+#### Client
+
+`sudo nano /opt/fsf/fsf-client/conf/config.py`
+
+SERVER_CONFIG = {'IP ADDRESS' : ['172.16.50.100',], 'PORT' : 5800 }
+
+#### Create Directories
+`cd /data/fsf`
+`sudo mkdir {logs,files}`
+
+#### Change ownership of the directories
+`sudo chown -R fsf: /data/fsf/`
+
+#### Start the FSF service
+`sudo systemctl start fsf`
