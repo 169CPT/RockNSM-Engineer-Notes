@@ -140,6 +140,25 @@ redef Kafka::kafka_conf = table(
           # [“metadata.broker.list”] = “<172.16.50.100>:9092, 172.116.2.100:9092”);    //list most reliable sensors, others will auto-populate
 ```
 
+# Enable bro logging to kafka for all logs
+```
+event bro_init() &priority=-5
+{
+  for (stream_id in Log::active_streams)
+  {
+    if (|Kafka::logs_to_send| == 0 || stream_id in Kafka::logs_to_send)
+    {
+        local filter: Log::Filter = [
+          $name = fmt("kafka-%s", stream_id),
+          $writer = Log::WRITER_KAFKAWRITER,
+          $config = table(["stream_id"] = fmt("%s", stream_id))
+        ];
+
+        Log::add_filter(stream_id, filter);
+    }
+  }
+}
+```
 #### Configure Zeek to use json
 
 `sudo nano /usr/share/zeek/site/scripts/json.zeek`
@@ -168,5 +187,3 @@ https://gist.github.com/dcode/97039239c74a1c1e420c
 
 `zeekctl cleanup all`
 //cleans up the nodes and then run `zeekctl check` if no errors, run `zeekctl deploy`
-
- 
