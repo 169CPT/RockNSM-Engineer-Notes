@@ -23,13 +23,15 @@ change to 8gbs to min and max
 `sudo nano /etc/systemd/system/elasticsearch.serviced/override.conf`
 
 #### Change ownership
-chown -R elasticsearch: /data/elasticsearch  
+`chown -R elasticsearch: /data/elasticsearch`  
 
 #### Add firewall permissions  
-firewall-cmd --add-port==9200/tcp --permanent
+`firewall-cmd --add-port==9200/tcp --permanent`  
+`firewall-cmd  --reload`    
+
 
 #### Start elasticsearch  
-sudo systemctl start elasticsearch  
+`sudo systemctl start elasticsearch`  
 
 **Check to see if elasticsearch is running**
 `curl localhost:9200`
