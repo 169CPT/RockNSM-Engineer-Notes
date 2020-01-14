@@ -41,5 +41,5 @@ RAID 0 - often done with kafka - kafka has its own built-in redundancy - with a 
 
 **Troubleshooting Kafka**
 `/usr/share/kafka/bin/kafka-topics.sh --list --bootstrap-server 172.16.50.100:9092`
-`/usr/share/kafka/bin/kafka-topics.sh --describe --topic zeek-raw --bootstrap-server 172.16.50.100:9002`
-`/usr/share/kafka/bin/kafka-console-consumer.sh --bootstrap-server 172.16.50.100:9002 --topic zeek-raw`
+`/usr/share/kafka/bin/kafka-topics.sh --describe --topic zeek-raw --bootstrap-server 172.16.50.100:9092`
+`/usr/share/kafka/bin/kafka-console-consumer.sh --bootstrap-server 172.16.50.100:9092 --topic zeek-raw` #if logstash is running add --from-beginning

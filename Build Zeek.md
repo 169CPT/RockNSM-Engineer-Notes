@@ -47,7 +47,7 @@ Add line at the bottom
 //create directory referenced above
 
 * Log-dir: The directory bro/zeek writes its log to
-* lb_ucstom.InterfacePrefix=af_packet:: Note: This line does not exist by default and needs to be added in order to tell bro/zeek to use af_packet
+* lb_custom.InterfacePrefix=af_packet:: Note: This line does not exist by default and needs to be added in order to tell bro/zeek to use af_packet
 `node.cfg`
 
 `network.cfg`
