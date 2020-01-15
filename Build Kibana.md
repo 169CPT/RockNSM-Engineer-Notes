@@ -3,7 +3,7 @@
 `sudo yum install kibana`  
 
 **Open fireall**  
-`sudo firewall-cmd --add-port=5602/tcp --permanent`
+`sudo firewall-cmd --add-port=5601/tcp --permanent`
 'sudo firewall-cmd --reload'   
 
 **Modify the following file**  

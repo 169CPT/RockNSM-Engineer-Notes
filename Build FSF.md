@@ -40,7 +40,7 @@ SERVER_CONFIG = {'IP ADDRESS' : ['172.16.50.100',], 'PORT' : 5800 }
 `sudo systemctl start fsf`
 
 #### Change from fsf.pid to scanner.pid
-`sudo vi /usr/lib/systemd/system/fsf.service`
+`sudo nano /usr/lib/systemd/system/fsf.service`
 **PIDFile=/run/fsf/scanner.pid**
 
 `sudo systemctl daemon-reload`

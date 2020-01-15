@@ -60,11 +60,11 @@ Add line at the bottom
 A typical deployment of Bro/Zeek is run on a single sensor.  Bro/Zeek is not multithreaded which means that each Bro/Zeek process needed to be assigned to a single core and the total workload spread out among many cores.  All of the processes used by Bro/Zeek are clustered in what can be thought of as a single-node cluster.  The cluster is controlled using broctl which has an interactive shell mode as well as a list of commands that can be run directly in the command line.  Note: Bro/Zeek can also be clustered across more than one machine.
 The Bro/Zeek cluster is configured in the node.cfg
 
-`sudo vi /etc/zeek/node.cfg`
+`sudo nano /etc/zeek/node.cfg`  
 **Commment out lines 8-11**
 **Uncomment lines 16-36**
 
-Only need first worker, delete second worker
+Only need first worker, delete second worker  
 **[worker-2]**
 
 Add line to manager
@@ -121,7 +121,10 @@ Edit `local.zeek`
 Create a file for the script
 `sudo nano afpacket.zeek`
 **Cut and Paste the following**
-`redef AF_Packet::fanout_id = strcmp(getenv(“fanout_id”),””) == 0 ? ) : to_count(getenv(“fanout_id”));`
+`redef AF_Packet::fanout_id = strcmp(getenv(“fanout_id”),””) == 0 ? 0 : to_count(getenv(“fanout_id”));`
+
+`redef AF_Packet::fanout_id = strcmp(getenv("fanout_id"),"") == 0 ? 0 : to_count(getenv("fanout_id"));`  
+
 
 **Reference**
 `https://github.com/rocknsm/rock-scripts/blob/master/plugins/afpacket.bro`
@@ -136,7 +139,7 @@ redef Kafka::topic_name = "zeek-raw";                //zeek-raw can be any name
 redef Kafka::json_timestamps = JSON::TS_ISO8601;
 redef Kafka::tag_json = F;
 redef Kafka::kafka_conf = table(
-    [“metadata.broker.list”] = “<172.16.50.100>:9092”);        //list of sensor IDs at port 9092
+    ["metadata.broker.list"] = "172.16.50.100:9092");        //list of sensor IDs at port 9092
           # [“metadata.broker.list”] = “<172.16.50.100>:9092, 172.116.2.100:9092”);    //list most reliable sensors, others will auto-populate
 ```
 
