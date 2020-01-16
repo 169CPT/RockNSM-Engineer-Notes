@@ -2,6 +2,4 @@
 
 **How to build RockNSM**  
 
-**new**  
-
-**really new**  
+Start with installing Centos   

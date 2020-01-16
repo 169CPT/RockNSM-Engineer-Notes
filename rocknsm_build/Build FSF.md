@@ -13,7 +13,7 @@ File Scanning Framework (FSF)
 ‘LOG_PATH’ : ‘/data/fsf/logs’,
 ‘YARA_PATH’ : ‘/var/lib/yara-rules/rules.yara’,
 'PID_PATH' : '/run/fsf/scanner.pid',
-‘EXPORT_PATH’ : ‘/data/fsf/files’,        //archives files marked as malicious here
+‘EXPORT_PATH’ : ‘/data/fsf/files’,        ##archives files marked as malicious here
 'EXPORT_PATH' : '/data/fsf/files',
 'TIMEOUT' : 60,
 'MAX_DEPTH' : 10,

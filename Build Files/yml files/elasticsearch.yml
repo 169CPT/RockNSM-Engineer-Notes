@@ -1,3 +1,5 @@
+#file location: /etc/elasticsearch/
+#
 # ======================== Elasticsearch Configuration =========================
 #
 # NOTE: Elasticsearch comes with reasonable defaults for most settings.

@@ -1,0 +1,20 @@
+#file location: /opt/fsf/fsf-server/conf/config.py
+
+#!/usr/bin/env python
+#
+# Basic configuration attributes for scanner. Used as default
+# unless the user overrides them.
+#
+
+import socket
+
+SCANNER_CONFIG = { 'LOG_PATH' : '/data/fsf/logs',
+                   'YARA_PATH' : '/var/lib/yara-rules/rules.yara',
+                   'PID_PATH' : '/run/fsf/scanner.pid',
+                   'EXPORT_PATH' : '/data/fsf/files',
+                   'TIMEOUT' : 60,
+                   'MAX_DEPTH' : 10,
+                   'ACTIVE_LOGGING_MODULES' : ['scan_log', 'rockout'],
+                   }
+
+SERVER_CONFIG = { 'IP_ADDRESS' : "172.16.50.100", 'PORT' : 5800 }
