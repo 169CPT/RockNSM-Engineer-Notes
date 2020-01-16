@@ -1,2 +1,7 @@
-# this git is to help me pass the class
+# RockNSM  
 
+**How to build RockNSM**  
+
+**new**  
+
+**really new**  
