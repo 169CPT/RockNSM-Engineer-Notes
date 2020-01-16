@@ -8,7 +8,7 @@
 
 **To change the path where to store data**  
 `cd /etc/logstash/`  
-`sudo nano logstash.yml`  
+`sudo nano logstash.yml` //DONT CHANGE FOR THIS CLASS  
 
 **Pipeline configurations**  
 `cd /etc/logstash/conf.d/`  
