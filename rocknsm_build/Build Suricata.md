@@ -25,7 +25,7 @@
 rules are located in `/var/lib/suricata/rules`
 
 #### Edit Sniffing Interface
-`sudo nano vi /etc/sysconfig/suricata`
+`sudo nano /etc/sysconfig/suricata`
 `OPTIONS="--af-packet=enp2s0 --user suricata "`  #(promisc mode interface)
 
 #### Override Suricata yaml with our changes
