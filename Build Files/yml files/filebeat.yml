@@ -1,3 +1,5 @@
+#file location: /etc/filebeat/
+#
 #=========================== Filebeat inputs =============================
 
 filebeat.inputs:
